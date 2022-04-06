@@ -4,13 +4,20 @@
     margin:0;
     box-sizing: border-box;
 }
+:root{
+  --white-bg:#d4d4d4;
+  --white-font:black;
+  --dark-bg:black;
+  --dark-font:white;
+}
 .main {
   width: 100%;
 
-  background-color: #d4d4d4;
+  background-color: var(--white-bg);
+  /* background-color: var(--dark-bg); */
   min-height: 100vh;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: var(--dark-font);
   display: flex;
   flex-direction: column;
   /* align-items: center; */
@@ -44,15 +51,17 @@ h1, .button{
   -webkit-text-fill-color: transparent;
 }
 .dark-icon, .light-icon{
-  fill:black;
+  fill:var(--dark-font);
+  fill:var(--white-font);
   
   
 }
 .today-card{
   /* height:19vh; */
   background-color: #af4261;
-  padding:1.6rem .7rem;
-  border-radius:7px;
+  /* padding:1.6rem .7rem; */
+  border-radius:20px;
+  padding:2rem;
   /* max-width: 90vw; */
 }
 .today-clock{
