@@ -3,6 +3,7 @@ import { useState } from "react";
 
 import Header from "./components/header";
 import Today from "./components/today";
+import Content from "./components/Content";
 function App() {
   const [darkmode, setdarkmode] = useState(false);
 
@@ -25,6 +26,8 @@ function App() {
         <Header darkmode={darkmode} setdarkmode={setdarkmode}/>
 
         <Today clock={clock} setclock={setclock} newdate={newdate} setnewdate={setnewdate} />
+
+        <Content />
       </section>
     </div>
   );
