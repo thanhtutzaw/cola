@@ -8,7 +8,7 @@ const  id = Math *10;
 
   return (
     <section className="content">
-      <ul>
+      <ul className="li-parent">
         {showmodal && 
           (
             <Modal setshowmodal={setshowmodal} showmodal={showmodal}/>
@@ -16,22 +16,29 @@ const  id = Math *10;
           
           
         }
+        
+        <div>
         <Lists id={id} text={"ol"}
         setshowmodal={setshowmodal}
         showmodal ={showmodal}
         />
-        <Lists text={"ol"}    
+        
+        <Lists id={id} text={"ol"}
         setshowmodal={setshowmodal}
         showmodal ={showmodal}
         />
-        <Lists text={"ol"} 
+        </div>
+        <div>
+        <Lists id={id} text={"ol"}
         setshowmodal={setshowmodal}
         showmodal ={showmodal}
         />
-        <Lists text={"ol"} 
+        
+        <Lists id={id} text={"ol"}
         setshowmodal={setshowmodal}
         showmodal ={showmodal}
         />
+        </div>
 
 
 
