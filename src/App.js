@@ -19,6 +19,7 @@ function App() {
   const [clock, setclock] = useState("h:m:s");
   const [newdate, setnewdate] = useState();
   
+  const [showmodal, setshowmodal] = useState(false)
 
   return (
     <div className="App">
@@ -27,7 +28,7 @@ function App() {
 
         <Today clock={clock} setclock={setclock} newdate={newdate} setnewdate={setnewdate} />
 
-        <Content />
+        <Content showmodal={showmodal} setshowmodal={setshowmodal} />
       </section>
     </div>
   );
