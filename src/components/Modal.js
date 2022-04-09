@@ -1,8 +1,24 @@
-import React from "react";
+import React,{useState} from "react";
 import { createPortal } from "react-dom";
 import { IoCloseOutline } from "react-icons/io5";
+import Ripples, { createRipples } from "react-ripples";
+// import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+// import { LocalizationProvider } from '@mui/';
+// import TextField from '@mui/material/TextField/TextField';
+// import { TimePicker } from '@mui/x-date-pickers/TimePicker';
+// import Stack from '@mui/material/Stack/Stack';
+function Modal({children,text,setshowmodal, showmodal }) {
+  // const [value, setValue] = useState<Date | null>(
+  //   new Date('2014-08-18T21:11:54')
+  // );
+  const Ripples = createRipples({
+  color: 'white',
+  during:450,
+})
 
-function Modal({ setshowmodal, showmodal }) {
+  // const handleChange = (newValue: Date | null) => {
+  //   setValue(newValue);
+  // };
   const toggleModal = () => {
     setshowmodal((showmodal) => !showmodal);
   };
@@ -15,7 +31,29 @@ function Modal({ setshowmodal, showmodal }) {
         {/* this text is inside backdrop with black bg */}
       </div>
       <div className="modal-content">
-        <h1>hay</h1>
+        <div className="nameParent">
+        <label>Name</label>
+        <input className="inputName" type="text" />
+        </div>
+        <div className="date-parent">
+          <label>Date</label>
+          <input type="date" />
+        {/* <LocalizationProvider dateAdapter={AdapterDateFns}>
+        <Stack spacing={3}>
+        <DesktopDatePicker
+          label="Date desktop"
+          inputFormat="MM/dd/yyyy"
+          value={value}
+          onChange={handleChange}
+          renderInput={(params) => <TextField {...params} />}
+        />
+        </Stack>
+        </LocalizationProvider> */}
+    
+        </div>
+        <Ripples>
+          <button className="submit-btn">Submit</button>
+        </Ripples>
         <IoCloseOutline className="close-btn" onClick={toggleModal} />
       </div>
     </div>,
