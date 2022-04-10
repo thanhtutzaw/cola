@@ -20,10 +20,6 @@ function Lists(props) {
         // console.log(e.target.value)
         props.setshowmodal((showmodal) => !showmodal)
       }}
-        // onClick={() => {
-        //   // alert('heyu')
-        //   props.setshowmodal((showmodal) => !showmodal);
-        // }}
       >
         <div className="content-children">
           <GrAdd className="add-btn" />

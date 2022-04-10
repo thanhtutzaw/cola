@@ -186,20 +186,18 @@ li:hover {
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(7px);
-  transition: all 1s ease-in;
+  /* transition: all 1s ease-in; */
 }
 .modal-content {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);   
   border-radius: 20px;
   background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  gap:1.5em;
   padding:2rem;
   text-align: center;
   width: 80vw;
@@ -208,6 +206,7 @@ li:hover {
   color: rgb(60, 60, 60);
   z-index: 101;
 }
+
 .close-btn{
   position: absolute;
   top:0;
@@ -216,18 +215,25 @@ li:hover {
   font-size: 1.8em;
 }
 .inputName{
-
-
+padding: 0 .3rem;
+ 
+/* background-color: transparent; */
 }
 .inputName:focus{
   outline: none;
 }
 .submit-btn{
-  
+  position: absolute;
+  bottom: 0;
+  right:0;
+  margin:1.3em;
   background-color: green;
   color:white;
   padding:.5em .7em;
   border: none;
-   border-radius: 20px;
+   border-radius: 5px;
    display: block;
+}
+.modal-container{
+  /* padding:2rem 0; */
 }

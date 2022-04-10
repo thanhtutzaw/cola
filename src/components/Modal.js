@@ -1,20 +1,20 @@
-import React,{useState} from "react";
+import React from "react";
 import { createPortal } from "react-dom";
 import { IoCloseOutline } from "react-icons/io5";
-import Ripples, { createRipples } from "react-ripples";
+// import { createRipples } from "react-ripples"; 
 // import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 // import { LocalizationProvider } from '@mui/';
 // import TextField from '@mui/material/TextField/TextField';
 // import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 // import Stack from '@mui/material/Stack/Stack';
-function Modal({children,text,setshowmodal, showmodal }) {
+function Modal({ children, text, setshowmodal, showmodal }) {
   // const [value, setValue] = useState<Date | null>(
   //   new Date('2014-08-18T21:11:54')
   // );
-  const Ripples = createRipples({
-  color: 'white',
-  during:450,
-})
+  // const Ripples = createRipples({
+  //   color: "white",
+  //   during: 450,
+  // });
 
   // const handleChange = (newValue: Date | null) => {
   //   setValue(newValue);
@@ -24,21 +24,19 @@ function Modal({children,text,setshowmodal, showmodal }) {
   };
   return createPortal(
     <div className="modal-parent">
-      <div
-        className="backdrop"
-        onClick={toggleModal} 
-      >
+      <div className="backdrop" onClick={toggleModal}>
         {/* this text is inside backdrop with black bg */}
       </div>
       <div className="modal-content">
-        <div className="nameParent">
-        <label>Name</label>
-        <input className="inputName" type="text" />
+        <div className="modal-container">
+        <div className="name-parent">
+          <label>Name</label>
+          <input autoFocus className="inputName" type="text" placeholder="Name" spellCheck="false" />
         </div>
         <div className="date-parent">
           <label>Date</label>
           <input type="date" />
-        {/* <LocalizationProvider dateAdapter={AdapterDateFns}>
+          {/* <LocalizationProvider dateAdapter={AdapterDateFns}>
         <Stack spacing={3}>
         <DesktopDatePicker
           label="Date desktop"
@@ -49,11 +47,12 @@ function Modal({children,text,setshowmodal, showmodal }) {
         />
         </Stack>
         </LocalizationProvider> */}
-    
         </div>
-        <Ripples>
+        
           <button className="submit-btn">Submit</button>
-        </Ripples>
+        </div>
+        
+
         <IoCloseOutline className="close-btn" onClick={toggleModal} />
       </div>
     </div>,
