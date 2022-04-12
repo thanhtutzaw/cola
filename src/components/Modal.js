@@ -60,7 +60,6 @@ function Modal({ children, text, setshowmodal, showmodal }) {
       <div className="modal-content">
         <div className="modal-container">
         <div className="name-parent">
-          <label>Name</label>
           <input autoFocus className="inputName" type="text" placeholder="Name" spellCheck="false" />
         </div>
         <div className="date-parent">
@@ -70,7 +69,7 @@ function Modal({ children, text, setshowmodal, showmodal }) {
                     <div className="mbsc-row">
                         <div className="mbsc-col-12">
                             {/* <div className="mbsc-txt-muted md-mobile-picker-header">Use the picker with any inputs & show on focus/click</div> */}
-                            <Datepicker controls={['date']} inputComponent="input" inputProps={inputProps} />
+                            <Datepicker display="center" controls={['date']} inputComponent="input" inputProps={inputProps} />
                         </div>
                     </div>
                 </div>
