@@ -16,16 +16,28 @@ function Header({ darkmode, setdarkmode }) {
     if (darkmode) {
       setdarkmode((darkmode) => !darkmode);
       // console.log('changed to light mode')
-      //  document.documentElement.removeAttribute('dark','true')
+      // if(theme == 'false'){
+
+      //   document.documentElement.removeAttribute('dark','true')
+      // }
+      document.documentElement.removeAttribute('dark','true')
       localStorage.setItem("dark", false);
     } else {
       setdarkmode((darkmode) => !darkmode);
       // console.log('changed to dark mode')
-      // document.documentElement.setAttribute('dark','true')
+      document.documentElement.setAttribute('dark','true')
       localStorage.setItem("dark", true);
     }
-  };
+    // if(theme == false){
+    //   document.documentElement.removeAttribute('dark','true')
+    // }
+    // if(theme == 'true'){
+    //   alert('true')
+    //   document.documentElement.removeAttribute('dark','true')
 
+    // }
+  };
+// let documentElement = document.documentElement.hasAttribute('dark','true')
   return (
     <header className="row">
       <h1 className="logo">Cola</h1>
