@@ -57,47 +57,14 @@ function Modal({ children, text, setshowmodal, showmodal }) {
       <div className="backdrop" onClick={toggleModal}>
         {/* this text is inside backdrop with black bg */}
       </div>
+      <div className="content-modal-container">
       <div className="modal-content">
         <div className="modal-container">
         <div className="name-parent">
           <input autoFocus className="inputName" type="text" placeholder="Name" spellCheck="false" />
         </div>
         <div className="date-parent">
-        <Page>
-            <div className="mbsc-grid">
-                <div className="mbsc-form-group">
-                    <div className="mbsc-row">
-                        <div className="mbsc-col-12">
-                            {/* <div className="mbsc-txt-muted md-mobile-picker-header">Use the picker with any inputs & show on focus/click</div> */}
-                            <Datepicker display="center" controls={['date']} inputComponent="input" inputProps={inputProps} />
-                        </div>
-                    </div>
-                </div>
-                <div className="mbsc-form-group">
-                    {/* <div className="mbsc-row">
-                        <div className="mbsc-col-12 mbsc-txt-muted md-mobile-picker-header">Disable <code>onClick/onFocus</code> and only show on button</div>
-                        <div className="mbsc-col-8">
-                            <Datepicker controls={['date']} inputComponent="input" inputProps={inputProps} showOnClick={false} showOnFocus={false} isOpen={openPicker} onClose={onClose} defaultValue={date} />
-                        </div>
-                        <div className="mbsc-col-4">
-                            <Button variant="outline" color="primary" className="md-mobile-picker-button" onClick={show}>Show picker</Button>
-                        </div>
-                    </div> */}
-                </div>
-                {/* <div className="mbsc-form-group">
-                    <div className="mbsc-row">
-                        <div className="mbsc-col-12">
-                            <div className="mbsc-txt-muted md-mobile-picker-header">Use the picker with a Mobiscroll input</div>
-                            <Datepicker  controls={['date']} inputProps={boxInputProps} />
-                        </div>
-                    </div>
-                </div> */}
-                {/* <div className="mbsc-txt-muted md-mobile-picker-header">Use the picker inline in any page</div> */}
-            </div>
-            {/* <div className="md-mobile-picker-inline">
-                <Datepicker display="inline" controls={['date']} />
-            </div> */}
-        </Page>
+        <input className="date-input" type="date"></input>
           {/* <LocalizationProvider dateAdapter={AdapterDateFns}>
         <Stack spacing={3}>
         <DesktopDatePicker
@@ -116,6 +83,7 @@ function Modal({ children, text, setshowmodal, showmodal }) {
         
 
         <IoCloseOutline className="close-btn" onClick={toggleModal} />
+      </div>
       </div>
     </div>,
     document.getElementById("modal")

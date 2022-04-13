@@ -74,7 +74,8 @@ ul li {
 }
 h1,
 .button,
-.close-btn {
+.close-btn,
+.submit-btn {
   cursor: pointer;
 }
 .button:focus {
@@ -188,25 +189,53 @@ li:hover {
   backdrop-filter: blur(.3px);
   /* transition: all 1s ease-in; */
 }
-.modal-content {
+.content-modal-container{
+  /* height:100vh; */
   position: absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+}
+.modal-content {
+  position: relative;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);   
+  transform: translate(-50%, -50%);  
+  
+  position: absolute;
+  /* height: 100vh;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transform: translate(-50%, -50%);  */
+
   border-radius: 20px;
   background-color: #f2f2f7;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding:2rem;
+  
   text-align: center;
   width: 80vw;
   max-width:500px;
-  height: 30%;
+  /* height: 30%; */
+  height:270px;
   color: rgb(60, 60, 60);
   z-index: 101;
 }
-
+.modal-container{
+  display: flex;
+  display: f;
+  flex-direction: column;
+  flex: 1 1 auto;
+  /* color-rendering: optimizeQuality; */
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 1rem;
+}
 .close-btn{
   position: absolute;
   top:0;
@@ -214,13 +243,39 @@ li:hover {
   margin:13px;
   font-size: 1.8em;
 }
+.name-parent{
+  /* border: 3px solid red; */
+  /* position: absolute; */
+  /* height: 100vh;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0; */
+}
+/* .name-parent{
+  border: 3px solid red;
+  position: absolute;
+  height:100vh;
+  top:0;
+  bottom: 0;
+  left:0;
+  right:0;
+} */
 .inputName{
-padding: 0 .3rem;
- 
+  position: relative;
+padding: .4rem .8rem;
+
 /* background-color: transparent; */
 }
 .inputName:focus{
   outline: none;
+}
+.date-input{
+  /* border-radius: 5px;
+  border: 2px solid black; */
+  position: relative;
+  padding: .4rem .8rem;
+  
 }
 .submit-btn{
   position: absolute;
