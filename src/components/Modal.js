@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import { createPortal } from "react-dom";
 import { IoCloseOutline } from "react-icons/io5";
 // import { createRipples } from "react-ripples"; 
@@ -7,48 +7,11 @@ import { IoCloseOutline } from "react-icons/io5";
 // import TextField from '@mui/material/TextField/TextField';
 // import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 // import Stack from '@mui/material/Stack/Stack';
-import '@mobiscroll/react/dist/css/mobiscroll.min.css';
-import { Datepicker, Button, Page, setOptions } from '@mobiscroll/react';
 
-setOptions({
-    theme: 'ios',
-    themeVariant: 'light'
-});
 
-function Modal({ children, text, setshowmodal, showmodal }) {
-  const [openPicker, setOpenPicker] = React.useState(false);
-    const [date, setDate] = React.useState(new Date());
-    
-    const show = () => {
-        setOpenPicker(true);
-    };
-    
-    const onClose = () => {
-        setOpenPicker(false);
-    };
-    
-    const inputProps = {
-        className: 'md-mobile-picker-input',
-        placeholder: 'Please Select...'
-    };
-    
-    const boxInputProps = {
-        className: 'md-mobile-picker-box-label',
-        inputStyle: 'box',
-        placeholder: 'Please Select...'
-    };
-    
-  // const [value, setValue] = useState<Date | null>(
-  //   new Date('2014-08-18T21:11:54')
-  // );
-  // const Ripples = createRipples({
-  //   color: "white",
-  //   during: 450,
-  // });
+function Modal() {
+  const [showmodal, setshowmodal] = useState(false);
 
-  // const handleChange = (newValue: Date | null) => {
-  //   setValue(newValue);
-  // };
   const toggleModal = () => {
     setshowmodal((showmodal) => !showmodal);
   };

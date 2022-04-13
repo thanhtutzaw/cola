@@ -1,57 +1,61 @@
-import React, { useEffect } from "react";
+import React, {useState,useEffect} from "react";
 import { MdDarkMode } from "react-icons/md";
 import { MdLightMode } from "react-icons/md";
-function Header({ darkmode, setdarkmode }) {
+function Header() {
+
+  const [darkmode, setdarkmode] = useState(
+    localStorage.getItem("dark") === "true"
+  );
   let theme;
   if (localStorage) {
     theme = localStorage.getItem("dark");
   }
+  useEffect(() => {
+    if (theme == "true") {
+      // alert(`${theme} from local is dark-true`)
+      document.documentElement.removeAttribute("dark", "true");
+    } else {
+      // alert(`${theme} dark-false from local is `)
+      document.documentElement.setAttribute("dark", "true");
+    }
+  }, [theme]);
+  
+  useEffect(() => {
+    if (darkmode === true) {
+      document.documentElement.removeAttribute("dark", "true");
+    } else {
+      document.documentElement.setAttribute("dark", "true");
+    }
+  }, [darkmode]);
+
+  useEffect(() => {
+    localStorage.setItem("dark", darkmode);
+  }, [darkmode]);
+
+  
+  if (localStorage) {
+    theme = localStorage.getItem("dark");
+  }
   const darkmodetoggle = () => {
-    //  setdarkmode((darkmode)=> !darkmode)
-    // (theme == true) ? setdarkmode(theme) : setdarkmode(theme)
-    // console.log(theme)
-    // setdarkmode((darkmode) => !darkmode);
-    // console.log(theme)
-    // setdarkmode( localStorage.getItem('dark'))
     if (darkmode) {
       setdarkmode((darkmode) => !darkmode);
-      // console.log('changed to light mode')
-      // if(theme == 'false'){
-
-      //   document.documentElement.removeAttribute('dark','true')
-      // }
-      document.documentElement.removeAttribute('dark','true')
+      document.documentElement.removeAttribute("dark", "true");
       localStorage.setItem("dark", false);
     } else {
       setdarkmode((darkmode) => !darkmode);
-      // console.log('changed to dark mode')
-      document.documentElement.setAttribute('dark','true')
+      document.documentElement.setAttribute("dark", "true");
       localStorage.setItem("dark", true);
     }
-    // if(theme == false){
-    //   document.documentElement.removeAttribute('dark','true')
-    // }
-    // if(theme == 'true'){
-    //   alert('true')
-    //   document.documentElement.removeAttribute('dark','true')
-
-    // }
   };
-// let documentElement = document.documentElement.hasAttribute('dark','true')
+
   return (
     <header className="row">
       <h1 className="logo">Cola</h1>
-      {theme == "false" ? (
+      {theme === "false" ? (
         <MdLightMode onClick={darkmodetoggle} className="button light-icon" />
       ) : (
         <MdDarkMode onClick={darkmodetoggle} className="button dark-icon" />
       )}
-
-      {/* {darkmode ? (
-        <MdLightMode onClick={darkmodetoggle} className="button light-icon" />
-      ) : (
-        <MdDarkMode onClick={darkmodetoggle} className="button dark-icon" />
-      )} */}
     </header>
   );
 }
