@@ -22,6 +22,7 @@ function Modal(props) {
                 type="text"
                 placeholder="Name"
                 spellCheck="false"
+                value={"hey"}
               />
             </div>
             <div className="date-parent">

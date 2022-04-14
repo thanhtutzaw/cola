@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Lists from "./Lists";
 import Modal from "./Modal";
 
@@ -7,36 +7,50 @@ function Content() {
   // const  id = Math *10;
   const [showmodal, setshowmodal] = useState(false);
 
-  const [data, setdata] = useState([
+  const [data, setdata] = useState(
+    // "ddfdd"
+    [
     { id: 1, nameDate: "mg mg", date: "1.2.3" },
     { id: 2, nameDate: "wewwqe", date: "1.2.3" },
     { id: 3, nameDate: "fef", date: "1.2.3" },
     { id: 4, nameDate: "h5h5", date: "1.2.3" },
-  ]);
+  ]
+  );
+
+  // useEffect(() => {
+  //   setdata(
+
+  //   )
+  // }, []);
+
+  // if(Object.keys(data).length !== 0){
+  //   alert("data")
+  // }else{
+  //   alert("null")
+  // }
 
   return (
     <section className="content">
       <ul>
-        {/* {showmodal && 
+         {showmodal && 
           (
             <Modal showmodal={showmodal} setshowmodal={setshowmodal}/>
           )
           
           
-        } */}
+        } 
 
-        {data.map((item) => (Object.values(data).length === 0) 
-        ? 
-        (<Lists>Null</Lists>)  // if null show this
-        :
-        (
-          <Lists item={item} id={item.id} nameDate={item.nameDate} date={item.date}></Lists>
+        
+        {data.map((item) =>( 
+        
+          <Lists setshowmodal={setshowmodal}
+          showmodal ={showmodal} item={item} id={item.id} nameDate={item.nameDate} date={item.date}></Lists>
           // if(data == null){
           //   console.log("null")
           // }
-        )
         
-        )}
+        
+        ))}
 
         {/*         
         <Lists  text={"1"}

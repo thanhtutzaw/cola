@@ -13,31 +13,45 @@ function Lists(props) {
 
   return (
     <div className="content-card">
-      <li
+      {props.data 
+      !== null 
+      ?
+      (<li
         onClick={(e) => {
-          props.setshowmodal((showmodal) => !showmodal);
+            props.setshowmodal((showmodal) => !showmodal);
         }}
       >
         <div className="content-children">
           {/* <GrAdd className="add-btn" /> */}
-          <div>
-            {props.item == null ? (
+
               <div>
-              <p>null</p>
-            </div>
-            ) : (
+              <p>id={props.id}</p>
+              <p>name={props.nameDate}</p>
+              <p>date={props.date}</p>
+              </div>
+        </div>
+      </li>)
+      :
+      (<li
+        onClick={(e) => {
+            props.setshowmodal((showmodal) => !showmodal);
+        }}
+      >
+        <div className="content-children">
+         
+          
+           
               <div>
-                <p>id={props.id}</p>
-                <p>name={props.nameDate}</p>
-                <p>date={props.date}</p>
+                <GrAdd className="add-btn" />
               </div>
               
-            )}
-          </div>
-        </div>
-      </li>
 
-      {/* )} */}
+          
+        </div>
+      </li>)
+
+     
+            }
     </div>
   );
 }
