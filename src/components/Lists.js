@@ -1,4 +1,4 @@
-import React ,{useState} from "react";
+import React, { useState } from "react";
 import { GrAdd } from "react-icons/gr";
 // import Ripples from "react-ripples";
 // import Modal from "./Modal";
@@ -10,37 +10,34 @@ import { GrAdd } from "react-icons/gr";
 function Lists(props) {
   // let isnull = props.isnull;
   // const [showmodal, setshowmodal] = useState(isnull);
-  const [birthday, setbirthday] = useState("");
+
   return (
-    <div
-      className="content-card"
-    >
-      {(birthday) ?
-      (<li
-      // onClick={(e)=>{
-        // console.log(e.target.value)
-        // props.setshowmodal((showmodal) => !showmodal)
-      // }}
+    <div className="content-card">
+      <li
+        onClick={(e) => {
+          props.setshowmodal((showmodal) => !showmodal);
+        }}
       >
         <div className="content-children">
-            {birthday}
-        </div>
-
-      </li>)
-      : (<li
-        onClick={(e)=>{
-          // console.log(e.target.value)
-          props.setshowmodal((showmodal) => !showmodal)
-        }}
-        >
-          <div className="content-children">
-            <GrAdd className="add-btn" />
-            
+          {/* <GrAdd className="add-btn" /> */}
+          <div>
+            {props.item == null ? (
+              <div>
+              <p>null</p>
+            </div>
+            ) : (
+              <div>
+                <p>id={props.id}</p>
+                <p>name={props.nameDate}</p>
+                <p>date={props.date}</p>
+              </div>
+              
+            )}
           </div>
-  
-        </li>)
+        </div>
+      </li>
 
-      }
+      {/* )} */}
     </div>
   );
 }

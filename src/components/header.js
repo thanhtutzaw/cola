@@ -11,7 +11,7 @@ function Header() {
     theme = localStorage.getItem("dark");
   }
   useEffect(() => {
-    if (theme == "true") {
+    if (theme === "true") {
       // alert(`${theme} from local is dark-true`)
       document.documentElement.removeAttribute("dark", "true");
     } else {
