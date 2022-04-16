@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import { GrAdd } from "react-icons/gr";
+import { MdModeEdit } from "react-icons/md";
 import Modal from "./Modal";
 
 const dataArray = [
@@ -9,10 +10,33 @@ const dataArray = [
   { id: 4, namedate: "", date: "" },
 ];
 function Lists(props) {
+  const [dataStored, setdataStored] = useState([]);
   const [data, setdata] = useState(dataArray);
   const [showmodal, setshowmodal] = useState(false);
   const [currentCard, setcurrentCard] = useState(null);
+  useEffect(() => {
+    
+    updateLocal()
+  }, []);
 
+  useEffect(() => {
+    if(data?.length)
+    localStorage.setItem('data',JSON.stringify(data));
+
+  }, [data]);
+  // const stored = JSON.parse(localStorage.getItem('data'))
+
+  const updateLocal = () => {
+    // if (localStorage.getItem('data') === null) {
+    //   localStorage.setItem('data', JSON.stringify([]) );
+    // } else {
+      // const newdata = JSON.parse(localStorage.getItem('data'));
+      // if(newdata) setdataStored(newdata)
+
+      const newdata = JSON.parse(localStorage.getItem('data'));
+  setdata(newdata)
+    // }
+  }
   return (
     <>
       {showmodal && (
@@ -26,27 +50,35 @@ function Lists(props) {
       )}
 
       {data.map((item) => (
-        <div className="content-card">
+        <div className="content-card" key={item.id}>
           {item.namedate !== "" ||
           // if !== null this condition will not work
           item.date !== "" ? (
             <div>
-              <li
+              <li className="cursor-default"
                 onClick={(e) => {
                   setcurrentCard(item.id);
                 }}
               >
                 <div className="content-children">
-                  <div>
-                    <p>name ={item.namedate}</p>
-                    <p>date ={item.date}</p>
+                  <div className="content-row">
+                    {/* <p className="date-name">{localStorage.getItem('data').namedate}</p>
+                    <p>{localStorage.getItem('data').date}</p> */}
+                    <p className="date-name">{item.namedate}</p>
+                    <p>{item.date}</p>
                   </div>
                 </div>
               </li>
+                <MdModeEdit className="nav-icon">
+                  <select>
+                    <option>hi</option>
+                    <option>hi</option>
+                  </select>
+                </MdModeEdit>
             </div>
           ) : (
             <div>
-              <li
+              <li className="hover-list"
                 onClick={(e) => {
                   setshowmodal((showmodal) => !showmodal);
                   setcurrentCard(item.id);
