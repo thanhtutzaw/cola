@@ -13,28 +13,30 @@ function Lists(props) {
 
   return (
     <div className="content-card">
-      {props.data 
-      !== null 
+{      
+       props.namedate
       ?
       (<li
         onClick={(e) => {
-            props.setshowmodal((showmodal) => !showmodal);
         }}
       >
         <div className="content-children">
-          {/* <GrAdd className="add-btn" /> */}
-
               <div>
-              <p>id={props.id}</p>
-              <p>name={props.nameDate}</p>
+              <p>name={props.namedate}</p>
+              
               <p>date={props.date}</p>
               </div>
         </div>
       </li>)
-      :
+      : 
       (<li
-        onClick={(e) => {
+        onClick={(key) => {
+          // showmodalWithId(props.id)
             props.setshowmodal((showmodal) => !showmodal);
+            // console.log(props.id+"from map")
+
+            // alert(props.id)
+            // console.log(props.id)
         }}
       >
         <div className="content-children">
@@ -43,15 +45,17 @@ function Lists(props) {
            
               <div>
                 <GrAdd className="add-btn" />
+                {/* <p>{props}</p> */}
               </div>
               
 
           
         </div>
       </li>)
+}
 
      
-            }
+            
     </div>
   );
 }
