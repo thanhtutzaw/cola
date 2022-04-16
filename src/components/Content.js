@@ -1,82 +1,75 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Lists from "./Lists";
-import Modal from "./Modal";
 
-function Content() {
-  // const isnull = true;
-  // const  id = Math *10;
-  const [showmodal, setshowmodal] = useState(false);
 
-  const [data, setdata] = useState(
-    // "ddfdd"
-    [
-    { id: 1, nameDate: "mg mg", date: "1.2.3" },
-    { id: 2, nameDate: "wewwqe", date: "1.2.3" },
-    { id: 3, nameDate: "fef", date: "1.2.3" },
-    { id: 4, nameDate: "h5h5", date: "1.2.3" },
-  ]
-  );
+function Content({ listId }) {
 
+  
+  // const [date, setdate] = useState('');
+  // const [modalId, setmodalId] = useState();
+
+
+  
+  // const [submitted, setsubmitted] = useState(false);
+
+  // const submitHandle = (id, key, e) => {
+
+    // setdata(
+    //   {modalId,input,date}
+
+    //  )
+    // var datas = JSON.parse(localStorage.getItem('data') || "[]");
+    // var data ={
+    //   nameDate : input,
+    //   date : date
+    // }
+    // datas.push(data)
+    // localStorage.setItem('data',JSON.stringify(datas))
+
+    // setsubmitted(true)
+    // console.log(input, date, modalId);
+  //  setshowmodal((showmodal) => !showmodal);
+  // };
+  // const updateModal = (e) => {
+  //   [0,1,2,3].map( (i,index)=>{
+  //     if(e.targt.id == index){
+  //       console.log(e.targt.id)
+  //       console.log(index)
+  //     }
+  //   })
+  // }
   // useEffect(() => {
   //   setdata(
 
   //   )
   // }, []);
 
-  // if(Object.keys(data).length !== 0){
-  //   alert("data")
-  // }else{
-  //   alert("null")
-  // }
-
   return (
     <section className="content">
       <ul>
-         {showmodal && 
-          (
-            <Modal showmodal={showmodal} setshowmodal={setshowmodal}/>
-          )
-          
-          
-        } 
+
+        <Lists />
 
         
-        {data.map((item) =>( 
         
-          <Lists setshowmodal={setshowmodal}
-          showmodal ={showmodal} item={item} id={item.id} nameDate={item.nameDate} date={item.date}></Lists>
-          // if(data == null){
-          //   console.log("null")
-          // }
-        
-        
-        ))}
 
-        {/*         
-        <Lists  text={"1"}
-        setshowmodal={setshowmodal}
-        showmodal ={showmodal}
-        />
-        
-        <Lists  text={"2"}
-        setshowmodal={setshowmodal}
-        showmodal ={showmodal}
-        />
-        <Lists   text={"3"}
-        setshowmodal={setshowmodal}
-        showmodal ={showmodal}
-        />
-        
-        <Lists  text={"4"}
-        setshowmodal={setshowmodal}
-        showmodal ={showmodal}
-        /> */}
-
-        {/* <Lists isnull={true} text={"mg mg"} />
-        <Lists isnull={true}/>
-        <Lists isnull={true}/>
-        <Lists isnull={true}/>
-        <Lists isnull={true}/> */}
+        {/* {[0, 1, 2, 3].map((i, listId) => (
+          <Lists
+          submitted={submitted}
+            input={input}
+            setinput={setinput}
+            setdate={setdate}
+            date={date}
+            setmodalId={setmodalId}
+            id={listId}
+            data={data}
+            setnamedate={setnamedate}
+            key={i}
+            namedate={namedate}
+            setshowmodal={setshowmodal}
+            showmodal={showmodal}
+          ></Lists>
+        ))} */}
       </ul>
     </section>
   );
