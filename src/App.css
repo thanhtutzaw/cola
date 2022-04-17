@@ -368,13 +368,48 @@ input.md-mobile-picker-input {
 .content-row .date-name{
   overflow-x: auto;
 } 
+nav{
+  border: 2px solid red;
+  position: absolute;
+  max-width: 20%;
+    left: 3px;
+  
+}
 .nav-icon{
   position: relative;
-  top: -161px;
-  right: -142px;
+
+  /* top: -161px;
+  right: -142px; */
 
   
 }
 .cursor-default{
   cursor: default;
+}
+.tools-parent{
+  position: relative;
+  /* top:0;
+  right:-90px; */
+  /* display: block; */
+}
+.tools-container{
+  /* border: 3px solid red; */
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* min-width:30%; */
+  width:130px;
+  gap:.5em;
+  position: relative;
+  top:3px;
+  /* top:-190px;
+  right: -120px; */
+  display: block;
+  border: 3px solid rgb(12, 223, 47);
+  /* z-index: 100; */
+
+
+
 }
