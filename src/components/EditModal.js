@@ -2,29 +2,54 @@ import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { IoCloseOutline } from "react-icons/io5";
 
-function Modal(props) {
-  
-  const [namedate, setnamedate] = useState('');
-  const [date, setdate] = useState('');
+function EditModal(props) {
+  const [editnamedate, seteditnamedate] = useState('');
+  const [editdate, seteditdate] = useState('');
+  // console.log(props.currentEditCard)
+  const savedData = JSON.parse(localStorage.getItem('data'))
+  useEffect(() => {
+    savedData.map( (item)=> {
 
-  const submitHandle = () => {
-    const updateDate = props.data.map( item => {
-      
-      if(item.id === props.currentCard){
-        return {...item, namedate,date}
+      // console.log(item.id)
+      // setcurrentEditCard(item.id)
+
+      if(item.id === props.currentEditCard){
+        seteditnamedate(item.namedate)
+        seteditdate(item.date)
+        // seteditnamedate(JSON.stringify(item.namedate))
+        // return {...item, editnamedate,date } 
+        
+      }
+          // seteditnamedate(item.namedate)
+          
+        // return {...item, namedate,date}
+      else {
+        // seteditnamedate("no")
+
+        return item;
+      }
+      // seteditnamedate(editnamedate)
+      // console.log(item.id,item.namedate,item.date)
+    }) 
+  }, []);
+  const submitEditHandle = () => {
+    
+    const updateDate = savedData.map( item => {
+      if(item.id === props.currentEditCard){
+       localStorage.setItem('data',editnamedate,editdate)
+        return {...item, editnamedate,editdate}
       }else {
         return item;
       }
     })
-    props.setdata(updateDate)
-
-
-    // localStorage.setItem('name',input)
+    // props.setdata(updateDate)
     toggleModal()
+
   };
 
   const toggleModal = () => {
-    props.setshowmodal((showmodal) => !showmodal);
+    props.setshoweditmodal((prevstate)=> !prevstate)
+
   };
 
   return createPortal(
@@ -37,8 +62,11 @@ function Modal(props) {
           <div className="modal-container">
             <div className="name-parent">
               <input
+              value={editnamedate}
                 onChange={(e) => {
-                  setnamedate(e.target.value);
+                  seteditnamedate(e.target.value)
+                  // updateEdit()
+                  // setnamedate(e.target.value);
                 }}
                 // onChange={(e)=>{ props.setnamedate(e.target.value)}}
                 // value={props.modalId}
@@ -55,15 +83,16 @@ function Modal(props) {
             </div>
             <div className="date-parent">
               <input
+              value={editdate}
                 className="date-input"
                 type="date"
                 onChange={(e) => {
-                 setdate(e.target.value);
+                  seteditdate(e.target.value)
                 }}
               ></input>
             </div>
 
-            <button className="submit-btn" onClick={submitHandle}>
+            <button className="submit-btn" onClick={submitEditHandle}>
               Submit
             </button>
           </div>
@@ -71,8 +100,8 @@ function Modal(props) {
         </div>
       </div>
     </div>,
-    document.getElementById("modal")
+    document.getElementById("EditModal")
   );
 }
 
-export default Modal;
+export default EditModal;

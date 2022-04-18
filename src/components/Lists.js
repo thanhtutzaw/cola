@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { GrAdd } from "react-icons/gr";
+import EditModal from "./EditModal";
 
 import Modal from "./Modal";
 import Tools from "./Tools";
@@ -11,11 +12,14 @@ const dataArray = [
   { id: 4, namedate: "", date: "" },
 ];
 function Lists(props) {
-
   const [dataStored, setdataStored] = useState([]);
   const [data, setdata] = useState(dataArray);
   const [showmodal, setshowmodal] = useState(false);
+  const [showeditmodal, setshoweditmodal] = useState(false);
+
   const [currentCard, setcurrentCard] = useState(null);
+  const [currentEditCard, setcurrentEditCard] = useState(null);
+
   useEffect(() => {
     updateLocal();
   }, []);
@@ -49,14 +53,31 @@ function Lists(props) {
         />
       )}
 
+      {showeditmodal && (
+        <EditModal
+          // data={data}
+          // setdata={setdata}
+          currentEditCard={currentEditCard}
+          showeditmodal={showeditmodal}
+          setshoweditmodal={setshoweditmodal}
+        />
+      )}
+
       {data.map((item) => (
         <div className={`content-card`} key={item.id}>
-        {/* <div className={`content-card ${opentools ? 'content-card-nav-active' : ''}`} key={item.id}> */}
+          {/* <div className={`content-card ${opentools ? 'content-card-nav-active' : ''}`} key={item.id}> */}
           {item.namedate !== "" ||
           // if !== null this condition will not work
           item.date !== "" ? (
             <div className="pointer-none">
-              <Tools/>
+              <Tools
+                onClick={(e) => {
+                  
+                }}
+                setshoweditmodal={setshoweditmodal}
+                setcurrentEditCard={setcurrentEditCard}
+                id={item.id}
+              />
 
               <li
                 className="cursor-default"

@@ -4,14 +4,14 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
-input,
+/* input,
 textarea,
 button,
 select,
 a {
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
-}
+} */
 /* *::-webkit-scrollbar {
   width: 10px;
   background: #055575ec;
@@ -34,7 +34,7 @@ a {
   --white-font: black;
   --dark-bg: black;
   --list-light-font: rgb(117, 93, 93);
-  --dark-font: white;
+  --dark-font: rgb(214, 214, 214);
   /* --white-list:rgb(117,93,93); */
 }
 .main {
