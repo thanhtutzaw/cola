@@ -52,7 +52,7 @@ function Header() {
     <header className="row">
       <h1 className="logo">Cola</h1>
       {theme === "false" ? (
-        <MdLightMode onClick={darkmodetoggle} className="button light-icon" />
+      <MdLightMode onClick={darkmodetoggle} className="button light-icon" />
       ) : (
         <MdDarkMode onClick={darkmodetoggle} className="button dark-icon" />
       )}

@@ -4,8 +4,7 @@ import { MdDelete } from "react-icons/md";
 // import { ReactDOM } from "react-dom";
 // import Outside from "./Outside";
 
-function Tools(props) {
-  const [opentools, setopentools] = useState(false);
+function Tools({opentools,setopentools}) {
   // const { ref, isComponentVisible } = useComponentVisible(true);
 
   // useEffect(() => {
@@ -18,7 +17,8 @@ function Tools(props) {
   // }, []);
 
   const handleTools = () => {
-    setopentools(prevstate => !prevstate);
+    setopentools((opentools)=>!opentools);
+    
 
   };
   // document.onclick(()=>{
@@ -31,19 +31,23 @@ function Tools(props) {
 
   return (
     // <Outside>
-    <nav>
-      <MdModeEdit className="nav-icon" onClick={handleTools} />
+    <div className="dropdown">
+    <nav className={opentools ? 'nav-active' : ''}>
+      <div className="nav-icon-parent" onClick={handleTools}>
+      <MdModeEdit className="nav-icon"  />
+
+      </div>
+    </nav>
 
       {opentools && (
         <div className="tools-parent">
           <div className="tools-container">
-            <div><MdModeEdit className="edit-btn" /><span>Edit</span></div>
-            <div><MdDelete className="delte-btn" /><span>Delete</span></div>
+            <div className="edit-parent"><MdModeEdit className="edit-btn" /><span>Edit</span></div>
+            <div className="delete-parent"><MdDelete className="delte-btn" /><span>Delete</span></div>
           </div>
         </div>
       ) }
-    </nav>
-
+</div>
     // </Outside>
 
 // <div ref={ref}>

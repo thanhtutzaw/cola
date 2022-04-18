@@ -11,6 +11,8 @@ const dataArray = [
   { id: 4, namedate: "", date: "" },
 ];
 function Lists(props) {
+  const [opentools, setopentools] = useState(false);
+
   const [dataStored, setdataStored] = useState([]);
   const [data, setdata] = useState(dataArray);
   const [showmodal, setshowmodal] = useState(false);
@@ -36,7 +38,6 @@ function Lists(props) {
     // }
   };
 
-  
   return (
     <>
       {showmodal && (
@@ -50,12 +51,12 @@ function Lists(props) {
       )}
 
       {data.map((item) => (
-        <div className="content-card" key={item.id}>
+        <div className={`content-card ${opentools ? 'content-card-nav-active' : ''}`} key={item.id}>
           {item.namedate !== "" ||
           // if !== null this condition will not work
           item.date !== "" ? (
-            <div>
-              <Tools />
+            <div className="pointer-none">
+              <Tools opentools={opentools} setopentools={setopentools} />
 
               <li
                 className="cursor-default"
@@ -63,9 +64,7 @@ function Lists(props) {
                   setcurrentCard(item.id);
                 }}
               >
-
                 <div className="content-children">
-
                   <div className="content-row">
                     {/* <p className="date-name">{localStorage.getItem('data').namedate}</p>
                     <p>{localStorage.getItem('data').date}</p> */}

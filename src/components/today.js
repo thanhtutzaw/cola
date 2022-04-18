@@ -1,7 +1,8 @@
-import React,{useState} from "react";
+import React,{useEffect, useState} from "react";
 
 function Today() {
 
+  // const [clock, setclock] = useState();
   const [clock, setclock] = useState("h:m:s");
   const [newdate, setnewdate] = useState();
   
@@ -14,6 +15,7 @@ function Today() {
     setclock(today);
   };
   setInterval(updateClock, 1000);
+ 
 
   const updateDate = () => {
     date = new Date().toLocaleDateString();
