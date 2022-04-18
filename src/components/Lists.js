@@ -11,7 +11,6 @@ const dataArray = [
   { id: 4, namedate: "", date: "" },
 ];
 function Lists(props) {
-  const [opentools, setopentools] = useState(false);
 
   const [dataStored, setdataStored] = useState([]);
   const [data, setdata] = useState(dataArray);
@@ -51,12 +50,13 @@ function Lists(props) {
       )}
 
       {data.map((item) => (
-        <div className={`content-card ${opentools ? 'content-card-nav-active' : ''}`} key={item.id}>
+        <div className={`content-card`} key={item.id}>
+        {/* <div className={`content-card ${opentools ? 'content-card-nav-active' : ''}`} key={item.id}> */}
           {item.namedate !== "" ||
           // if !== null this condition will not work
           item.date !== "" ? (
             <div className="pointer-none">
-              <Tools opentools={opentools} setopentools={setopentools} />
+              <Tools/>
 
               <li
                 className="cursor-default"

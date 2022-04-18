@@ -4,7 +4,9 @@ import { MdDelete } from "react-icons/md";
 // import { ReactDOM } from "react-dom";
 // import Outside from "./Outside";
 
-function Tools({opentools,setopentools}) {
+function Tools() {
+  const [opentools, setopentools] = useState(false);
+
   // const { ref, isComponentVisible } = useComponentVisible(true);
 
   // useEffect(() => {
@@ -17,7 +19,7 @@ function Tools({opentools,setopentools}) {
   // }, []);
 
   const handleTools = () => {
-    setopentools((opentools)=>!opentools);
+    setopentools((prevstate)=>!prevstate);
     
 
   };

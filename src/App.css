@@ -4,7 +4,13 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent;
+}
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 /* *::-webkit-scrollbar {
   width: 10px;
@@ -52,6 +58,9 @@ html[dark] .content {
 }
 html[dark] .light-icon {
   fill: white;
+}
+html[dark] .tools-parent{
+  background-color: rgb(37, 37, 37);
 }
 /* @media (prefers-color-scheme: dark){
   
@@ -180,6 +189,7 @@ li {
   backdrop-filter: blur(0.3px);
 }
 .content-modal-container {
+
   position: fixed;
   top: 50%;
   left: 50%;
@@ -201,11 +211,9 @@ li {
   flex-direction: column;
   justify-content: center;
   padding: 2rem;
-
   text-align: center;
   width: 80vw;
   max-width: 500px;
-  /* height: 30%; */
   height: 270px;
   color: rgb(60, 60, 60);
   z-index: 102;
@@ -228,10 +236,14 @@ li {
 .name-parent {
 
 }
-
+.inputName,.date-input{
+  border-radius: 8px;
+  border: 1px solid gainsboro;
+}
 .inputName {
   position: relative;
   padding: 0.4rem 0.8rem;
+  
 
   /* background-color: transparent; */
 }
@@ -252,7 +264,13 @@ li {
   padding: 0.5em 0.7em;
   border: none;
   border-radius: 5px;
-  display: block;
+  /* display: block; */
+  
+}
+.submit-btn:active {
+  /* background-color: #18e91f; */
+  transform: translateY(4px);
+  transform: scale(1.08);
 }
 .modal-container {
 
@@ -336,17 +354,17 @@ nav:focus{
   cursor: default;
 }
 .tools-parent {
-  /* height:100px; */
   min-width: 130px;
-
   position: absolute;
   top: 28px;
-
   right: -17px;
   background-color: white;
+  /* background-color: #515151; */
+  /* background-color: var(--dark-bg); */
   z-index: 100;
   gap: 0.5em;
   border-radius: 8px;
+  box-shadow: 0px 5px 12px 0px rgb(0 0 1 / 32%);
 
 }
 .tools-container {
