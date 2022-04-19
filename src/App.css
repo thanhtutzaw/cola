@@ -178,6 +178,7 @@ li {
   transform: scale(1.08);
   transition: transform 0.11s ease-in;
 }
+/* modal */
 .backdrop {
   color: white;
   position: fixed;
@@ -275,6 +276,8 @@ li {
 .modal-container {
 
 }
+/* modal style end */
+
 
 .md-mobile-picker-header {
   font-size: 14px;

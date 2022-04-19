@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { IoCloseOutline } from "react-icons/io5";
-
+import style from "./DeleteModal.module.css";
 function DeleteModal(props) {
 //   const [editnamedate, seteditnamedate] = useState("");
 //   const [editdate, seteditdate] = useState("");
@@ -62,22 +62,24 @@ function DeleteModal(props) {
   };
 
   return createPortal(
-    <div className="modal-parent">
-      <div className="backdrop" onClick={toggleModal}>
+    <div className={style.modalparent}>
+      <div className={style.backdrop} onClick={toggleModal}>
         {/* this text is inside backdrop with black bg */}
       </div>
-      <div className="content-modal-container">
-        <div className="modal-content">
-          <div className="modal-container">
+      <div className={style.contentmodalcontainer}>
+        <div className={style.modalcontent}>
+          <div className={style.modalcontainer}>
 Are you sure to Delete ?
-            <button className="submit-btn" onClick={CancelHandle}>
+            <div className={style.btnContainer}>
+            <button className={style.cancelbtn} onClick={CancelHandle}>
               CANCEL
             </button>
-            <button className="submit-btn" onClick={OkHandle}>
+            <button className={style.okbtn} onClick={OkHandle}>
               OK
             </button>
+            </div>
           </div>
-          {/* <IoCloseOutline className="close-btn" onClick={toggleModal} /> */}
+          {/* <IoCloseOutline className={style.closebtn} onClick={toggleModal} /> */}
         </div>
       </div>
     </div>,
