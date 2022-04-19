@@ -106,6 +106,7 @@ h1,
   fill: var(--white-font);
 }
 .today-card {
+  /* max-height: 180px; */
   background-color: #af4261;
   border-radius: 20px;
   padding: 2rem;
@@ -240,10 +241,11 @@ li {
 .inputName,.date-input{
   border-radius: 8px;
   border: 1px solid gainsboro;
-}
-.inputName {
+  padding: .6rem 0.8rem;
   position: relative;
-  padding: 0.4rem 0.8rem;
+  /* font-size: 15px; */
+}
+.inputName  {
   
 
   /* background-color: transparent; */
@@ -354,6 +356,7 @@ nav:focus{
   position: relative;
 }
 .cursor-default {
+  border: 2px solid rgb(202 199 199 / 70%);
   cursor: default;
 }
 .tools-parent {
@@ -401,7 +404,7 @@ nav:focus{
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 4px 13px;
+  padding: 9px 13px;
   display: flex;
   justify-content: flex-start;
   align-items: center;

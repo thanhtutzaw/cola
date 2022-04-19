@@ -3,7 +3,7 @@ import React,{useEffect, useState} from "react";
 function Today() {
 
   // const [clock, setclock] = useState();
-  const [clock, setclock] = useState('');
+  const [clock, setclock] = useState('h:m:s');
   const [newdate, setnewdate] = useState();
   
 

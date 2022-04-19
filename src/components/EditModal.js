@@ -52,14 +52,16 @@ function EditModal(props) {
     props.setdata(updateDate)
     toggleModal();
   };
-
+const backdropHandle = () => {
+  submitEditHandle()
+}
   const toggleModal = () => {
     props.setshoweditmodal((prevstate) => !prevstate);
   };
 
   return createPortal(
     <div className="modal-parent">
-      <div className="backdrop" onClick={toggleModal}>
+      <div className="backdrop" onClick={backdropHandle}>
         {/* this text is inside backdrop with black bg */}
       </div>
       <div className="content-modal-container">
