@@ -18,11 +18,20 @@ function Tools(props) {
   // }, []);
   const editButtonHandle = () => {
     props.setshoweditmodal((showeditmodal)=> !showeditmodal)
+    setopentools((prevstate) => !prevstate);
+  }
+  const deleteButtonHandle = () => {
+    
+    props.setshowdeletemodal((prevstate)=> !prevstate)
+    setopentools((prevstate) => !prevstate);
   }
   const handleTools = () => {
     props.setcurrentEditCard(props.id);
     setopentools((prevstate) => !prevstate);
-  };
+    
+  }
+
+  
   // document.onclick(()=>{
   // setopentools( (opentools)=> !opentools);
   // alert('clicked')
@@ -47,7 +56,7 @@ function Tools(props) {
                 <MdModeEdit className="edit-btn" />
                 <span>Edit</span>
               </div>
-              <div className="delete-parent">
+              <div onClick={deleteButtonHandle} className="delete-parent">
                 <MdDelete className="delte-btn" />
                 <span>Delete</span>
               </div>

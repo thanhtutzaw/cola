@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { GrAdd } from "react-icons/gr";
 import EditModal from "./EditModal";
+import DeleteModal from "./DeleteModal";
 
 import Modal from "./Modal";
 import Tools from "./Tools";
@@ -16,6 +17,8 @@ function Lists(props) {
   const [data, setdata] = useState(dataArray);
   const [showmodal, setshowmodal] = useState(false);
   const [showeditmodal, setshoweditmodal] = useState(false);
+  // const [showdeletemodal, setshowdeletemodal] = useState(false);
+  const [showdeletemodal, setshowdeletemodal] = useState(false);
 
   const [currentCard, setcurrentCard] = useState(null);
   const [currentEditCard, setcurrentEditCard] = useState(null);
@@ -23,9 +26,12 @@ function Lists(props) {
   useEffect(() => {
     updateLocal();
   }, []);
-
+  
   useEffect(() => {
     if (data?.length) localStorage.setItem("data", JSON.stringify(data));
+    return ()=>{
+
+    }
   }, [data]);
   // const stored = JSON.parse(localStorage.getItem('data'))
 
@@ -55,11 +61,20 @@ function Lists(props) {
 
       {showeditmodal && (
         <EditModal
-          // data={data}
-          // setdata={setdata}
+          data={data}
+          setdata={setdata}
           currentEditCard={currentEditCard}
           showeditmodal={showeditmodal}
           setshoweditmodal={setshoweditmodal}
+        />
+      )}
+      {showdeletemodal && (
+        <DeleteModal
+          data={data}
+          setdata={setdata}
+          currentEditCard={currentEditCard}
+          showdeletemodal={showdeletemodal}
+          setshowdeletemodal={setshowdeletemodal}
         />
       )}
 
@@ -74,6 +89,8 @@ function Lists(props) {
                 onClick={(e) => {
                   
                 }}
+                showdeletemodal={showdeletemodal}
+                setshowdeletemodal={setshowdeletemodal}
                 setshoweditmodal={setshoweditmodal}
                 setcurrentEditCard={setcurrentEditCard}
                 id={item.id}

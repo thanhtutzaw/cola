@@ -1,26 +1,32 @@
 import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { IoCloseOutline } from "react-icons/io5";
+import EditModal from "./EditModal";
 
 function Modal(props) {
-  
-  const [namedate, setnamedate] = useState('');
-  const [date, setdate] = useState('');
-
+  const [namedate, setnamedate] = useState("");
+  const [date, setdate] = useState("");
+  <EditModal
+    namedate={namedate}
+    setnamedate={setnamedate}
+    setdate={setdate}
+    date={date}
+  />;
+  // useEffect(() => {
+  //   updateDate()
+  // }, []);
   const submitHandle = () => {
-    const updateDate = props.data.map( item => {
-      
-      if(item.id === props.currentCard){
-        return {...item, namedate,date}
-      }else {
+    const updateDate = props.data.map((item) => {
+      if (item.id === props.currentCard) {
+        return { ...item, namedate, date };
+      } else {
         return item;
       }
-    })
-    props.setdata(updateDate)
-
+    });
+    props.setdata(updateDate);
 
     // localStorage.setItem('name',input)
-    toggleModal()
+    toggleModal();
   };
 
   const toggleModal = () => {
@@ -58,7 +64,7 @@ function Modal(props) {
                 className="date-input"
                 type="date"
                 onChange={(e) => {
-                 setdate(e.target.value);
+                  setdate(e.target.value);
                 }}
               ></input>
             </div>
