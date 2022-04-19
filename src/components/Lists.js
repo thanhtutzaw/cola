@@ -13,6 +13,8 @@ const dataArray = [
   { id: 4, namedate: "", date: "" },
 ];
 function Lists(props) {
+  const [opentools, setopentools] = useState(false);
+
   const [dataStored, setdataStored] = useState([]);
   const [data, setdata] = useState(dataArray);
   const [showmodal, setshowmodal] = useState(false);
@@ -22,6 +24,7 @@ function Lists(props) {
 
   const [currentCard, setcurrentCard] = useState(null);
   const [currentEditCard, setcurrentEditCard] = useState(null);
+  const [currentDeleteCard, setcurrentDeleteCard] = useState(null);
 
   useEffect(() => {
     updateLocal();
@@ -72,7 +75,8 @@ function Lists(props) {
         <DeleteModal
           data={data}
           setdata={setdata}
-          currentEditCard={currentEditCard}
+          currentDeleteCard={currentDeleteCard}
+
           showdeletemodal={showdeletemodal}
           setshowdeletemodal={setshowdeletemodal}
         />
@@ -86,13 +90,14 @@ function Lists(props) {
           item.date !== "" ? (
             <div className="pointer-none">
               <Tools
-                onClick={(e) => {
-                  
+                onClick={()=>{
+
                 }}
                 showdeletemodal={showdeletemodal}
                 setshowdeletemodal={setshowdeletemodal}
                 setshoweditmodal={setshoweditmodal}
                 setcurrentEditCard={setcurrentEditCard}
+                setcurrentDeleteCard={setcurrentDeleteCard}
                 id={item.id}
               />
 

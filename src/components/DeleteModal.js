@@ -3,8 +3,9 @@ import { createPortal } from "react-dom";
 import { IoCloseOutline } from "react-icons/io5";
 import style from "./DeleteModal.module.css";
 function DeleteModal(props) {
-//   const [editnamedate, seteditnamedate] = useState("");
-//   const [editdate, seteditdate] = useState("");
+  const [clear, setclear] = useState();
+  //   const [editnamedate, seteditnamedate] = useState("");
+  //   const [editdate, seteditdate] = useState("");
   // console.log(props.currentEditCard)
   const savedData = JSON.parse(localStorage.getItem("data"));
 
@@ -13,11 +14,12 @@ function DeleteModal(props) {
       // console.log(item.id)
       // setcurrentEditCard(item.id)
 
-      if (item.id === props.currentEditCard) {
+      if (item.id === props.currentDeleteCard) {
+        // console.log(item.id, props.currentDeleteCard)
         // seteditnamedate(item.namedate);
         // seteditdate(item.date);
         // seteditnamedate(JSON.stringify(item.namedate))
-        // return {...item, editnamedate,editdate }
+        // return {...item, namedate:'',date:'' }
       }
       // seteditnamedate(item.namedate)
 
@@ -33,6 +35,24 @@ function DeleteModal(props) {
   }, []);
 
   const OkHandle = () => {
+    const updateDate = savedData.map((item) => {
+      // const namedate = props.namedate;
+      //   const date = props.date;
+      // props.setnamedate(editnamedate)
+      // props.setdate(editdate)
+
+      if (item.id === props.currentDeleteCard) {
+        // console.log(item.namedate, editnamedate);
+        //  savedData.namedate = editnamedate
+        //  props.setnamedate(editnamedate)
+
+        return { ...item, namedate: "", date: "" };
+      } else {
+        return item;
+      }
+    });
+    localStorage.setItem("data", JSON.stringify(updateDate));
+    props.setdata(updateDate);
     // const updateDate = savedData.map((item) => {
     //   // const namedate = props.namedate;
     //   //   const date = props.date;
@@ -69,14 +89,15 @@ function DeleteModal(props) {
       <div className={style.contentmodalcontainer}>
         <div className={style.modalcontent}>
           <div className={style.modalcontainer}>
-Are you sure to Delete ?
+            Are you sure you want to Delete ?
             <div className={style.btnContainer}>
-            <button className={style.cancelbtn} onClick={CancelHandle}>
-              CANCEL
-            </button>
-            <button className={style.okbtn} onClick={OkHandle}>
-              OK
-            </button>
+              <button className={style.cancelbtn} onClick={CancelHandle}>
+                {/* <button className={[style.cancelbtn ,style.deletemodalbutton]} onClick={CancelHandle}> */}
+                CANCEL
+              </button>
+              <button className={style.okbtn} onClick={OkHandle}>
+                OK
+              </button>
             </div>
           </div>
           {/* <IoCloseOutline className={style.closebtn} onClick={toggleModal} /> */}

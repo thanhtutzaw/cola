@@ -27,6 +27,7 @@ function Tools(props) {
   }
   const handleTools = () => {
     props.setcurrentEditCard(props.id);
+    props.setcurrentDeleteCard(props.id);
     setopentools((prevstate) => !prevstate);
     
   }

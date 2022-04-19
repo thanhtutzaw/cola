@@ -30,6 +30,7 @@ function EditModal(props) {
       // console.log(item.id,item.namedate,item.date)
     });
   }, []);
+
   const submitEditHandle = () => {
     const updateDate = savedData.map((item) => {
       // const namedate = props.namedate;
@@ -38,7 +39,7 @@ function EditModal(props) {
       // props.setdate(editdate)
 
       if (item.id === props.currentEditCard) {
-        console.log(item.namedate, editnamedate);
+        // console.log(item.namedate, editnamedate);
         //  savedData.namedate = editnamedate
         //  props.setnamedate(editnamedate)
 
