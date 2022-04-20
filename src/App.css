@@ -62,6 +62,12 @@ html[dark] .light-icon {
 html[dark] .tools-parent{
   background-color: rgb(37, 37, 37);
 }
+html[dark] .cursor-default{
+  border: none;
+}
+html[dark] .hover-list{
+  border: 1px dashed rgba(235, 235, 235, 0.705);
+}
 /* @media (prefers-color-scheme: dark){
   
 } */
