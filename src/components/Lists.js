@@ -29,15 +29,6 @@ function Lists(props) {
   useEffect(() => {
     updateLocal();
   }, []);
-  
-  useEffect(() => {
-    if (data?.length) localStorage.setItem("data", JSON.stringify(data));
-    return ()=>{
-
-    }
-  }, [data]);
-  // const stored = JSON.parse(localStorage.getItem('data'))
-
   const updateLocal = () => {
     // if (localStorage.getItem('data') === null) {
     //   localStorage.setItem('data', JSON.stringify([]) );
@@ -49,6 +40,17 @@ function Lists(props) {
     setdata(newdata);
     // }
   };
+  // useEffect(() => {
+  //   localStorage.setItem("data", JSON.stringify(data))
+  // }, [data]);
+  // if (data?.length) localStorage.setItem("data", JSON.stringify(data));
+  useEffect(() => {
+    if (data?.length) localStorage.setItem("data", JSON.stringify(data));
+    
+  }, [data]);
+  // const stored = JSON.parse(localStorage.getItem('data'))
+
+  
 
   return (
     <>
@@ -82,7 +84,8 @@ function Lists(props) {
         />
       )}
 
-      {data.map((item) => (
+      
+      {data && data.map((item) => (
         <div className={`content-card`} key={item.id}>
           {/* <div className={`content-card ${opentools ? 'content-card-nav-active' : ''}`} key={item.id}> */}
           {item.namedate !== "" ||
