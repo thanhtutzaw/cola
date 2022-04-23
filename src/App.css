@@ -323,6 +323,7 @@ input.md-mobile-picker-input {
   margin: 6px 0 12px 0;
 }
 .content-children {
+  height: 100%;
   width: 100%;
   margin: 0 auto;
   justify-content: center;
@@ -331,9 +332,11 @@ input.md-mobile-picker-input {
   text-align: center;
 }
 .content-row {
+  height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 1.1em;
+  justify-content: center;
+  gap:10px;
   position: relative;
 }
 .content-row .date-name {
@@ -344,6 +347,12 @@ input.md-mobile-picker-input {
   position: relative;
   right: 39px;
   top: 15px;
+}
+.add-btn-row{
+  display: flex;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
 }
 nav {
   
@@ -423,6 +432,7 @@ nav:focus{
 }
 
 .nav-icon-parent{
+  z-index: 100;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -436,4 +446,7 @@ nav:focus{
    right: -32px;
    top: -14px;
 
+}
+.content .row{
+  font-size:16px;
 }
