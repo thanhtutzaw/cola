@@ -5,12 +5,13 @@ import DeleteModal from "./DeleteModal";
 
 import Modal from "./Modal";
 import Tools from "./Tools";
+import { type } from "@testing-library/user-event/dist/type";
 
 const dataArray = [
-  { id: 1, namedate: "", date: "", year: "" },
-  { id: 2, namedate: "", date: "", year: "" },
-  { id: 3, namedate: "", date: "", year: "" },
-  { id: 4, namedate: "", date: "", year: "" },
+  { id: 1, namedate: "", date: "" },
+  { id: 2, namedate: "", date: "" },
+  { id: 3, namedate: "", date: "" },
+  { id: 4, namedate: "", date: "" },
 ];
 function Lists(props) {
   const [opentools, setopentools] = useState(false);
@@ -35,6 +36,116 @@ function Lists(props) {
   useEffect(() => {
     setLocal();
   }, [data]);
+  const months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+  let year;
+  let month;
+  let day;
+  let todayDate = new Date();
+  let dyear = todayDate.getFullYear();
+  let dmonth = todayDate.getMonth() + 1;
+  let dday = todayDate.getDate();
+  let inputMonth, inputDay;
+leapChecker(dyear)
+  function displayYear(date) {
+    let inputDate = new Date(Date.parse(date));
+    inputMonth = inputDate.getMonth()+1;
+    inputDay = inputDate.getDate();
+    year = dyear - inputDate.getFullYear();
+
+    // month = dmonth - inputDate.getMonth();
+    if (dmonth >= inputMonth) {
+      month = dmonth - inputMonth;
+    } else {
+      year--;
+      month = 12 + dmonth - inputMonth;
+      month = month < 10 ? '0' + month : month ;
+      // if(month < 10){
+      //     month =`0 $`
+      // }
+    }
+
+    if (dday >= inputDay) {
+      day = dday - inputDay;
+      day = day < 10 ? '0' + day : day ;
+    } else {
+      month--;
+      let days = months[dmonth - 2];
+      day = days + dday - inputDay;
+
+
+      if (month < 0) {
+        month = 11;
+        year--;
+      }
+    }
+    return (
+      <div className="content row">
+        <div className="year">
+          <p>{year}</p>
+          <p>years</p>
+        </div>
+        <div className="month">
+          {/* <p>{displayMonth(item.date)}</p> */}
+          <p>{month}</p>
+          <p>months</p>
+        </div>
+        <div className="day">
+          {/* <p>{displayDay(item.date)}</p> */}
+          <p>{day}</p>
+          <p>days</p>
+        </div>
+      </div>
+    );
+
+    // return (year,month,day)=>{
+    //   zYear(year) ,zMonth(month) ,zDay(day);
+
+    // }
+
+    // return year
+    // if (dday >= inputDate.getDay()) {
+    //   day = dday - inputDate.getDay();
+    // } else {
+    //   // setmonth(month - 1)
+    //   // let days = months[dmonth - 2];
+    //   month = month--
+    //  day = dday - inputDate.getDay();
+
+    //   if (month < 0) {
+    //     month = 11;
+    //     year--;
+    //   }
+  }
+
+  function leapChecker(year){
+    if(year % 4 == 0 || 
+        (year % 100 == 0 && 
+        year % 400 == 0)
+        )
+    
+    {
+        months[1] = 29;
+    }
+    else{
+        months[1] = 28;
+    }
+}
+
+  function displayDay(date) {
+    let inputDate = new Date(Date.parse(date));
+  }
+
+  function zYear(year) {
+    return year;
+  }
+  function zMonth(month) {
+    return month;
+  }
+  function zDay(day) {
+    return day;
+  }
+
   // if(localStorage.getItem('data').length){
 
   //   updateLocal()
@@ -97,32 +208,30 @@ function Lists(props) {
   //   let dmonth = todayDate.getMonth() + 1;
   //   let dday = todayDate.getDate();
   // };
-  let year;
+  // let year;
 
-  function callFunction(inputValue) {
-    const inputDate = new Date(Date.parse(inputValue)); //mm dd yy
-    let input = {
-      year: inputDate.getFullYear(),
-      month: inputDate.getMonth(),
-      day: inputDate.getDate(),
-    };
-    // console.log(input.year);
-    const todayDate = new Date();
+  // function callFunction(inputValue) {
+  //   const inputDate = new Date(Date.parse(inputValue)); //mm dd yy
+  //   let input = {
+  //     year: inputDate.getFullYear(),
+  //     month: inputDate.getMonth(),
+  //     day: inputDate.getDate(),
+  //   };
+  //   // console.log(input.year);
+  //   const todayDate = new Date();
 
-    let dyear = todayDate.getFullYear();
-    let dmonth = todayDate.getMonth() + 1;
-    let dday = todayDate.getDate();
-    let myYear = dyear - input.year;
-    year = myYear.toString();
-    console.log(year);
+  //   let dyear = todayDate.getFullYear();
+  //   let dmonth = todayDate.getMonth() + 1;
+  //   let dday = todayDate.getDate();
+  //   let myYear = dyear - input.year;
+  //   year = myYear.toString();
+  //   console.log(year);
 
-    
-
-    // return year;
-    // displayFunction(year);
-    // this.setMyYear(MyYear(year));
-    //  setMyYear('ho')
-  }
+  //   // return year;
+  //   // displayFunction(year);
+  //   // this.setMyYear(MyYear(year));
+  //   //  setMyYear('ho')
+  // }
   // function displayFunction(year) {
   //   return year
 
@@ -202,23 +311,10 @@ function Lists(props) {
                     <p>{localStorage.getItem('data').date}</p> */}
                       <p className="date-name">{item.namedate}</p>
                       {/* {dateCalculation(item.date)} */}
-                      {callFunction(item.date)}
+                      {/* {callFunction(item.date)} */}
                       {/* <p>{item.date}</p> */}
                       {/* {displayFunction()} */}
-                      <div className="content row">
-                        <div className="year">
-                          <p>{item.year}</p>
-                          <p>years</p>
-                        </div>
-                        <div className="month">
-                          <p>{item.month}</p>
-                          <p>months</p>
-                        </div>
-                        <div className="day">
-                          <p>{item.day}</p>
-                          <p>days</p>
-                        </div>
-                      </div>
+                      <p>{displayYear(item.date, item.id)}</p>
                     </div>
                   </div>
                 </li>

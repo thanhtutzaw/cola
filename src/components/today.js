@@ -24,6 +24,7 @@ function Today() {
      clearInterval(timerID)
    };
  }, [clock]);
+
  const tick = () => {
 
   const d = new Date();
@@ -34,9 +35,10 @@ function Today() {
   setclock(h+':'+m+':'+s)
  }
 
-  const updateDate = () => {
-    date = new Date().toLocaleDateString();
-    setnewdate(date);
+ const updateDate = () => {
+   date = new Date().toLocaleDateString();
+   setnewdate(date);
+   <Lists newdate={"hello"} />
   };
   setInterval(updateDate, 1000);
 

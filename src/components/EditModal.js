@@ -5,9 +5,9 @@ import { IoCloseOutline } from "react-icons/io5";
 function EditModal(props) {
   const [editnamedate, seteditnamedate] = useState("");
   const [editdate, seteditdate] = useState("");
-  const [edityear, setedityear] = useState('');
-  const [editmonth, seteditmonth] = useState("");
-  const [editday, seteditday] = useState("");
+  // const [edityear, setedityear] = useState('');
+  // const [editmonth, seteditmonth] = useState("");
+  // const [editday, seteditday] = useState("");
   // console.log(props.currentEditCard)
   const savedData = JSON.parse(localStorage.getItem("data"));
   useEffect(() => {
@@ -34,49 +34,49 @@ function EditModal(props) {
     });
   }, []);
 
-  function callFunction(inputValue) {
-    const inputDate = new Date(inputValue); //mm dd yy
-    let input = {
-      year: inputDate.getFullYear(),
-      month: inputDate.getMonth(),
-      day: inputDate.getDate(),
-    };
-    // console.log(input.year);
-    const todayDate = new Date();
+//   function callFunction(inputValue) {
+//     const inputDate = new Date(inputValue); //mm dd yy
+//     let input = {
+//       year: inputDate.getFullYear(),
+//       month: inputDate.getMonth(),
+//       day: inputDate.getDate(),
+//     };
+//     // console.log(input.year);
+//     const todayDate = new Date();
 
-    let dyear = todayDate.getFullYear();
-    let dmonth = todayDate.getMonth() + 1;
-    let dday = todayDate.getDate();
-    let myYear = dyear - input.year;
-    setedityear(myYear)
+//     let dyear = todayDate.getFullYear();
+//     let dmonth = todayDate.getMonth() + 1;
+//     let dday = todayDate.getDate();
+//     let myYear = dyear - input.year;
+//     setedityear(myYear)
 
-    if (dmonth >= input.month) {
-      seteditmonth( dmonth - input.month);
-    } else {
-      setedityear(myYear - 1)
-      seteditmonth( 12 + dmonth - input.month);
-    }
+//     if (dmonth >= input.month) {
+//       seteditmonth( dmonth - input.month);
+//     } else {
+//       setedityear(myYear - 1)
+//       seteditmonth( 12 + dmonth - input.month);
+//     }
 
 
-    if(dday >= input.day){
-    seteditday(dday - input.day);
-}
-else{
-    // seteditmonth(month - 1)
-    // let days = months[dmonth - 2];
-    let myday = dday - input.day;
-    seteditday(myday)
-    if(editmonth < 0){
-        seteditmonth(11)
-        setedityear(edityear - 1)
-    }
-}
+//     if(dday >= input.day){
+//     seteditday(dday - input.day);
+// }
+// else{
+//     // seteditmonth(month - 1)
+//     // let days = months[dmonth - 2];
+//     let myday = dday - input.day;
+//     seteditday(myday)
+//     if(editmonth < 0){
+//         seteditmonth(11)
+//         setedityear(edityear - 1)
+//     }
+// }
     
-    // console.log(year);
-  }
+//     // console.log(year);
+//   }
 
   const submitEditHandle = () => {
-    callFunction(props.date)
+    // callFunction(props.date)
     const updateDate = savedData.map((item) => {
       // const namedate = props.namedate;
       //   const date = props.date;
@@ -88,7 +88,7 @@ else{
         //  savedData.namedate = editnamedate
         //  props.setnamedate(editnamedate)
 
-        return { ...item, namedate: editnamedate, date: editdate ,year:edityear,month:editmonth,day:editday};
+        return { ...item, namedate: editnamedate, date: editdate };
       } else {
         return item;
       }
@@ -140,7 +140,7 @@ const backdropHandle = () => {
                 type="date"
                 onChange={(e) => {
                   seteditdate(e.target.value);
-                  callFunction(e.target.value)
+                  // callFunction(e.target.value)
                 }}
               ></input>
             </div>
