@@ -274,6 +274,7 @@ cursor: default;
   border       : 1px solid gainsboro;
   padding      : .6rem 0.8rem;
   position     : relative;
+  width:100%;
 }
 
 .inputName {}
