@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from "react";
-
 function useOutsideAlerter(ref) {
   useEffect(() => {
     /**
@@ -18,12 +17,9 @@ function useOutsideAlerter(ref) {
     };
   }, [ref]);
 }
-
 function Outside(props) {
   const wrapperRef = useRef(null);
   useOutsideAlerter(wrapperRef);
-
   return <div ref={wrapperRef}>{props.children}</div>;
 }
-
 export default Outside;

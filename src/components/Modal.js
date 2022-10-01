@@ -61,8 +61,6 @@ function Modal(props) {
 //   }
   const submitHandle = () => {
     // callFunction(date)
-
-
     const updateDate = props.data.map((item) => {
       if (item.id === props.currentCard) 
       {
@@ -97,17 +95,11 @@ function Modal(props) {
                 onChange={(e) => {
                   setnamedate(e.target.value);
                 }}
-                // onChange={(e)=>{ props.setnamedate(e.target.value)}}
-                // value={props.modalId}
-                // onChange={(e)=>{props.setnamedate(e.target.value)}}
                 autoFocus
                 className="inputName"
                 type="text"
                 placeholder="Name"
                 spellCheck="false"
-                // value={props.nameDate}
-                // onChange={ ()=>{value = e.target.value}}
-                // value={e.target.value}
               />
             </div>
             <div className="date-parent">
