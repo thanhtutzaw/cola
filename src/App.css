@@ -46,6 +46,9 @@ html[dark] .tools-parent {
 html[dark] .cursor-default {
   border: none;
 }
+html[dark] .data-card {
+  border: none;
+}
 
 html[dark] .hover-list {
   border: 1px dashed rgba(235, 235, 235, 0.705);
@@ -100,11 +103,12 @@ h1,
 }
 
 .today-card {
-  background-color: #af4261;
-  border-radius   : 20px;
-  padding         : 2rem;
-  color           : rgb(228, 213, 213);
-  font-size       : calc(10px + 2vmin);
+  background-color   : #af4261;
+  border-radius      : 20px;
+  padding            : 2rem;
+  /* color           : rgb(228, 213, 213); */
+  color              : rgb(245, 239, 239);
+  font-size          : calc(10px + 2vmin);
 }
 
 .today-clock {
@@ -160,24 +164,47 @@ svg {
 }
 
 li {
-  border-radius   : 20px;
-  cursor          : pointer;
+  cursor             : pointer;
+  /* border          : 1px dashed rgba(0, 0, 0, 0.333); */
+  /* width           : 150px;
+  height             : 150px; */
+  /* margin          : 1rem; */
+  justify-content    : center;
+  align-items        : center;
+  display            : flex;
+  flex-direction     : column;
+}
+
+.data-card {
   background-color: rgba(232, 232, 232, 0.411);
-  border          : 1px dashed rgba(0, 0, 0, 0.333);
+  border-radius   : 20px;
   width           : 150px;
   height          : 150px;
+  transition      : transform 0.11s ease-in;
   margin          : 1rem;
   justify-content : center;
   align-items     : center;
   display         : flex;
   flex-direction  : column;
+  border: 2px solid rgb(202 199 199 / 70%);
+cursor: default;
+
+}
+
+.hover-list {
+  border          : 1px dashed rgba(0, 0, 0, 0.333);
+  border-radius   : 20px;
+  width           : 150px;
+  height          : 150px;
+  margin : 1rem;
   transition      : transform 0.11s ease-in;
+  background-color: rgba(232, 232, 232, 0.411);
 }
 
 .hover-list:hover {
-  background-color: rgba(179, 179, 179, 0.572);
-  transform       : scale(1.08);
-  transition      : transform 0.11s ease-in;
+  transform          : scale(1.08);
+  /* background-color: rgba(232, 232, 232, 0.411); */
+
 }
 
 .backdrop {
@@ -341,8 +368,8 @@ input.md-mobile-picker-input {
 .dropdown {
   text-align: right;
   position  : relative;
-  right     : 39px;
-  top       : 15px;
+  right     : -43px;
+  top       : -16px;
 }
 
 .add-btn-row {
@@ -369,15 +396,14 @@ nav:focus {
 }
 
 .cursor-default {
-  border: 2px solid rgb(202 199 199 / 70%);
-  cursor: default;
+  
 }
 
 .tools-parent {
   min-width       : 130px;
   position        : absolute;
-  top             : 28px;
-  right           : -17px;
+  top: 20px;
+right: -23px;
   background-color: white;
   z-index         : 100;
   gap             : 0.5em;

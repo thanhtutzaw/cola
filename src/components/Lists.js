@@ -152,11 +152,11 @@ function Lists(props) {
           />
         )}
         {data.map((item) => (
-          <div className={`content-card`} key={item.id}>
+          <li className={`content-card`} key={item.id}>
             {item.namedate !== "" ||
               // if !== null this condition will not work
               item.date !== "" ? (
-              <div className="pointer-none">
+              <div className="data-card">
                 <Tools
                   onClick={() => { }}
                   showdeletemodal={showdeletemodal}
@@ -166,7 +166,7 @@ function Lists(props) {
                   setcurrentDeleteCard={setcurrentDeleteCard}
                   id={item.id}
                 />
-                <li
+                <div
                   className="cursor-default"
                   onClick={(e) => {
                     setcurrentCard(item.id);
@@ -178,11 +178,11 @@ function Lists(props) {
                       <p>{displayYear(item.date, item.id)}</p>
                     </div>
                   </div>
-                </li>
+                </div>
               </div>
             ) : (
               <div>
-                <li
+                <div
                   className="hover-list"
                   onClick={(e) => {
                     //  localStorage.setItem("data", JSON.stringify(data));
@@ -195,10 +195,10 @@ function Lists(props) {
                       <GrAdd className="add-btn" />
                     </div>
                   </div>
-                </li>
+                </div>
               </div>
             )}
-          </div>
+          </li>
         ))}
       </>
     );
