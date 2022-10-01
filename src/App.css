@@ -6,6 +6,7 @@
   box-sizing                 : border-box;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+
 :root {
   --white-bg       : #d4d4d4;
   --white-font     : black;
@@ -13,47 +14,58 @@
   --list-light-font: rgb(117, 93, 93);
   --dark-font      : rgb(214, 214, 214);
 }
+
 .main {
-  width: 100%;
-  background-color   : var(--white-bg);
-  min-height         : 100vh;
-  color         : var(--list-light-font);
-  display       : flex;
-  flex-direction: column;
-  gap           : 2rem;
+  width           : 100%;
+  background-color: var(--white-bg);
+  min-height      : 100vh;
+  color           : var(--list-light-font);
+  display         : flex;
+  flex-direction  : column;
+  gap             : 2rem;
   transition      : all .3s ease-in;
 }
+
 html[dark] .main {
   background-color: rgb(36, 36, 36);
   transition      : all .2s ease-in-out;
 }
+
 html[dark] .content {
   color: var(--dark-font);
 }
+
 html[dark] .light-icon {
   fill: white;
 }
+
 html[dark] .tools-parent {
   background-color: rgb(37, 37, 37);
 }
+
 html[dark] .cursor-default {
   border: none;
 }
+
 html[dark] .hover-list {
   border: 1px dashed rgba(235, 235, 235, 0.705);
 }
+
 .row {
   display        : flex;
   align-items    : center;
   justify-content: space-between;
 }
+
 .container {
   padding       : 1.3rem 1.4rem;
   padding-bottom: 0;
 }
+
 header {
   font-size: 1.2em;
 }
+
 h1,
 h2,
 .today-card,
@@ -62,6 +74,7 @@ li .add-btn,
 ul li {
   user-select: none;
 }
+
 h1,
 .button,
 .close-btn,
@@ -69,19 +82,23 @@ h1,
 .nav-icon {
   cursor: pointer;
 }
+
 .button:focus {
   outline: none;
 }
+
 .logo {
   background             : -webkit-linear-gradient(#f39178, #af4261);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
 .dark-icon,
 .light-icon {
   fill: var(--dark-font);
   fill: var(--white-font);
 }
+
 .today-card {
   background-color: #af4261;
   border-radius   : 20px;
@@ -89,41 +106,51 @@ h1,
   color           : rgb(228, 213, 213);
   font-size       : calc(10px + 2vmin);
 }
+
 .today-clock {
   margin-top: 18px;
 }
+
 ul li {
   list-style: none;
 }
+
 a {
   text-decoration: none;
 }
+
 .add-btn,
 svg {
   fill: rgb(154, 154, 154);
 }
+
 .content-card:hover nav {
   opacity   : 1;
   visibility: visible;
 }
+
 .content-card-nav-active {
   pointer-events: none;
 }
+
 .nav-active {
   opacity   : 1;
   visibility: visible;
 }
+
 .content ul {
   display              : grid;
   grid-template-columns: repeat(4, 180px);
   justify-content      : center;
 }
+
 @media screen and (max-width:500px) {
   nav {
     opacity   : 1 !important;
     visibility: visible !important;
   }
 }
+
 @media (max-width: 963px) {
   .content ul {
     display              : grid;
@@ -131,8 +158,9 @@ svg {
     justify-content      : center;
   }
 }
+
 li {
-  border-radius: 20px;
+  border-radius   : 20px;
   cursor          : pointer;
   background-color: rgba(232, 232, 232, 0.411);
   border          : 1px dashed rgba(0, 0, 0, 0.333);
@@ -145,11 +173,13 @@ li {
   flex-direction  : column;
   transition      : transform 0.11s ease-in;
 }
+
 .hover-list:hover {
   background-color: rgba(179, 179, 179, 0.572);
   transform       : scale(1.08);
   transition      : transform 0.11s ease-in;
 }
+
 .backdrop {
   color           : white;
   position        : fixed;
@@ -160,6 +190,7 @@ li {
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter : blur(0.3px);
 }
+
 .content-modal-container {
   position     : fixed;
   top          : 50%;
@@ -171,6 +202,7 @@ li {
   max-width    : 500px;
   height       : 270px;
 }
+
 .modal-content {
   position        : fixed;
   top             : 50%;
@@ -189,6 +221,7 @@ li {
   color           : rgb(60, 60, 60);
   z-index         : 102;
 }
+
 .modal-container {
   display        : flex;
   flex-direction : column;
@@ -197,6 +230,7 @@ li {
   justify-content: flex-start;
   gap            : 1rem;
 }
+
 .close-btn {
   position : absolute;
   top      : 0;
@@ -204,7 +238,9 @@ li {
   margin   : 13px;
   font-size: 1.8em;
 }
+
 .name-parent {}
+
 .inputName,
 .date-input {
   border-radius: 8px;
@@ -212,15 +248,18 @@ li {
   padding      : .6rem 0.8rem;
   position     : relative;
 }
-.inputName {
-}
+
+.inputName {}
+
 .inputName:focus {
   outline: none;
 }
+
 .date-input {
   position: relative;
   padding : 0.4rem 0.8rem;
 }
+
 .submit-btn {
   position        : absolute;
   bottom          : 0;
@@ -232,14 +271,18 @@ li {
   border          : none;
   border-radius   : 5px;
 }
+
 .submit-btn:active {
   transform: translateY(4px);
   transform: scale(1.08);
 }
+
 .modal-container {}
+
 .md-mobile-picker-header {
   font-size: 14px;
 }
+
 input.md-mobile-picker-input {
   color             : initial;
   width             : 100%;
@@ -252,6 +295,7 @@ input.md-mobile-picker-input {
   box-sizing        : border-box;
   -webkit-appearance: none;
 }
+
 .md-mobile-picker-button.mbsc-button {
   font-size  : 13px;
   padding    : 0 15px;
@@ -260,14 +304,17 @@ input.md-mobile-picker-input {
   margin     : 6px 0;
   width      : 100%;
 }
+
 .mbsc-col-no-padding {
   padding-left: 0;
 }
+
 .md-mobile-picker-box-label.mbsc-textfield-wrapper-box,
 .md-mobile-picker-box-label .mbsc-textfield-wrapper-box,
 .md-mobile-picker-inline {
   margin: 6px 0 12px 0;
 }
+
 .content-children {
   height         : 100%;
   width          : 100%;
@@ -277,6 +324,7 @@ input.md-mobile-picker-input {
   padding        : 6px;
   text-align     : center;
 }
+
 .content-row {
   height         : 100%;
   display        : flex;
@@ -285,49 +333,58 @@ input.md-mobile-picker-input {
   gap            : 10px;
   position       : relative;
 }
+
 .content-row .date-name {
   overflow-x: auto;
 }
+
 .dropdown {
   text-align: right;
   position  : relative;
   right     : 39px;
   top       : 15px;
 }
+
 .add-btn-row {
   display        : flex;
   align-items    : center;
   height         : 100%;
   justify-content: center;
 }
+
 nav {
   position  : relative;
   opacity   : 0;
   visibility: hidden;
   transition: opacity 0.1s linear 0s;
 }
+
 nav:focus {
   opacity   : 1;
   visibility: visible;
 }
+
 .nav-icon {
   position: relative;
 }
+
 .cursor-default {
   border: 2px solid rgb(202 199 199 / 70%);
   cursor: default;
 }
+
 .tools-parent {
-  min-width          : 130px;
-  position           : absolute;
-  top                : 28px;
-  right              : -17px;
-  background-color   : white;
-  z-index            : 100;
-  gap                : 0.5em;
-  border-radius      : 8px;
-  box-shadow         : 0px 5px 12px 0px rgb(0 0 1 / 32%);
+  min-width       : 130px;
+  position        : absolute;
+  top             : 28px;
+  right           : -17px;
+  background-color: white;
+  z-index         : 100;
+  gap             : 0.5em;
+  border-radius   : 8px;
+  box-shadow      : 0px 5px 12px 0px rgb(0 0 1 / 32%);
 }
+
 .tools-container {
   display        : flex;
   flex-direction : column;
@@ -337,11 +394,13 @@ nav:focus {
   display        : block;
   overflow       : hidden;
 }
+
 .tools-container>div {
   cursor     : pointer;
   user-select: none;
   text-align : left;
 }
+
 .edit-parent,
 .delete-parent {
   display        : flex;
@@ -353,10 +412,12 @@ nav:focus {
   align-items    : center;
   gap            : 6px;
 }
+
 .edit-parent:hover,
 .delete-parent:hover {
   background-color: rgba(219, 17, 17, 0.103);
 }
+
 .nav-icon-parent {
   z-index         : 100;
   text-align      : center;
@@ -371,6 +432,7 @@ nav:focus {
   right           : -32px;
   top             : -14px;
 }
+
 .content .row {
   font-size: 16px;
 }

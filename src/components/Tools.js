@@ -5,7 +5,6 @@ import { MdDelete } from "react-icons/md";
 // import Outside from "./Outside";
 function Tools(props) {
   const [opentools, setopentools] = useState(false);
-  // const { ref, isComponentVisible } = useComponentVisible(true);
   const editButtonHandle = () => {
     props.setshoweditmodal((showeditmodal) => !showeditmodal)
     setopentools((prevstate) => !prevstate);
@@ -19,10 +18,6 @@ function Tools(props) {
     props.setcurrentDeleteCard(props.id);
     setopentools((prevstate) => !prevstate);
   }
-  // document.onclick(()=>{
-  // setopentools( (opentools)=> !opentools);
-  // alert('clicked')
-  // })
   return (
     <>
       <div className="dropdown">

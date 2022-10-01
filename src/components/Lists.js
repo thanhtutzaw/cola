@@ -17,14 +17,12 @@ function Lists(props) {
   const [data, setdata] = useState(dataArray);
   const [showmodal, setshowmodal] = useState(false);
   const [showeditmodal, setshoweditmodal] = useState(false);
-  // const [showdeletemodal, setshowdeletemodal] = useState(false);
   const [showdeletemodal, setshowdeletemodal] = useState(false);
   const [currentCard, setcurrentCard] = useState(null);
   const [currentEditCard, setcurrentEditCard] = useState(null);
   const [currentDeleteCard, setcurrentDeleteCard] = useState(null);
-  // const [MyYear, setMyYear] = useState(displayFunction);
+
   useEffect(() => {
-    // localStorage.setItem("data", JSON.stringify(data));
     updateLocal();
   }, []);
   useEffect(() => {
@@ -52,9 +50,6 @@ function Lists(props) {
       year--;
       month = 12 + dmonth - inputMonth;
       month = month < 10 ? '0' + month : month;
-      // if(month < 10){
-      //     month =`0 $`
-      // }
     }
     if (dday >= inputDay) {
       day = dday - inputDay;
@@ -86,21 +81,7 @@ function Lists(props) {
         </div>
       </div>
     );
-    // return (year,month,day)=>{
-    //   zYear(year) ,zMonth(month) ,zDay(day);
-    // }
-    // return year
-    // if (dday >= inputDate.getDay()) {
-    //   day = dday - inputDate.getDay();
-    // } else {
-    //   // setmonth(month - 1)
-    //   // let days = months[dmonth - 2];
-    //   month = month--
-    //  day = dday - inputDate.getDay();
-    //   if (month < 0) {
-    //     month = 11;
-    //     year--;
-    //   }
+
   }
   function leapChecker(year) {
     if (year % 4 == 0 ||
@@ -125,34 +106,10 @@ function Lists(props) {
   function zDay(day) {
     return day;
   }
-  // if(localStorage.getItem('data').length){
-  //   updateLocal()
-  // }
-  // else{
-  // }
-  // useEffect(() => {
-  //   JSON.parse(localStorage.getItem('data'))
-  // }, []);
-  // const updateLocal = () => {
-  //     const newdata = JSON.parse(localStorage.getItem("data")) || [];
-  //   setdata(newdata);
-  // };
   let today = new Date().toLocaleDateString();
   const dateSubtract = () => {
-    // let today = new Date();
-    // let myPastDate = new Date(today)
-    // let getToday = myPastDate();
-    // return today;
-    // const _MS_PER_DAY = 1000 * 60 * 60 * 24;
-    // const utc1 = Date.UTC(date1.getFullYear(), date1.getMonth(), date1.getDate());
-    // const utc2 = Date.UTC(date2.getFullYear(), date2.getMonth(), date2.getDate());
-    // return Math.floor((utc2 - utc1) / _MS_PER_DAY);
   };
-  // let year = today.getFullYear()
-  // let month = today.getMonth()
-  // let day = today.getDay()
-  // let getToday = year+'-'+month+'-'+day
-  // setnewdate(date);
+
   const setLocal = () => {
     localStorage.setItem("data", JSON.stringify(data));
   };
@@ -164,53 +121,6 @@ function Lists(props) {
       setdata(newdata);
     }
   };
-  // const dateCalculation = (inputValue) => {
-  //   // inputDate.innerText = input;
-  //   const inputDate = new Date(inputValue); //mm dd yy
-  //   let input = {
-  //     year: inputDate.getFullYear(),
-  //     month: inputDate.getMonth(),
-  //     day: inputDate.getDate(),
-  //   };
-  //   // const inputDate = new Date("3/2/2019") //mm dd yy
-  //   const todayDate = new Date();
-  //   let dyear = todayDate.getFullYear();
-  //   let dmonth = todayDate.getMonth() + 1;
-  //   let dday = todayDate.getDate();
-  // };
-  // let year;
-  // function callFunction(inputValue) {
-  //   const inputDate = new Date(Date.parse(inputValue)); //mm dd yy
-  //   let input = {
-  //     year: inputDate.getFullYear(),
-  //     month: inputDate.getMonth(),
-  //     day: inputDate.getDate(),
-  //   };
-  //   // console.log(input.year);
-  //   const todayDate = new Date();
-  //   let dyear = todayDate.getFullYear();
-  //   let dmonth = todayDate.getMonth() + 1;
-  //   let dday = todayDate.getDate();
-  //   let myYear = dyear - input.year;
-  //   year = myYear.toString();
-  //   console.log(year);
-  //   // return year;
-  //   // displayFunction(year);
-  //   // this.setMyYear(MyYear(year));
-  //   //  setMyYear('ho')
-  // }
-  // function displayFunction(year) {
-  //   return year
-  // }
-  // useEffect(() => {
-  //   localStorage.setItem("data", JSON.stringify(data))
-  // }, [data]);
-  // if (data?.length) localStorage.setItem("data", JSON.stringify(data));
-  // let newdata = JSON.parse(localStorage.getItem("data"));
-  // useEffect(() => {
-  //   setdata(newdata);
-  // }, []);
-  // const stored = JSON.parse(localStorage.getItem('data'))
   if (data) {
     return (
       <>
@@ -243,7 +153,6 @@ function Lists(props) {
         )}
         {data.map((item) => (
           <div className={`content-card`} key={item.id}>
-            {/* <div className={`content-card ${opentools ? 'content-card-nav-active' : ''}`} key={item.id}> */}
             {item.namedate !== "" ||
               // if !== null this condition will not work
               item.date !== "" ? (
@@ -265,13 +174,7 @@ function Lists(props) {
                 >
                   <div className="content-children">
                     <div className="content-row">
-                      {/* <p className="date-name">{localStorage.getItem('data').namedate}</p>
-                    <p>{localStorage.getItem('data').date}</p> */}
                       <p className="date-name">{item.namedate}</p>
-                      {/* {dateCalculation(item.date)} */}
-                      {/* {callFunction(item.date)} */}
-                      {/* <p>{item.date}</p> */}
-                      {/* {displayFunction()} */}
                       <p>{displayYear(item.date, item.id)}</p>
                     </div>
                   </div>

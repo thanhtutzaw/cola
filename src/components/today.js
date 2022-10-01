@@ -1,16 +1,9 @@
 import React,{useEffect, useState} from "react";
 import Lists from "./Lists";
 function Today() {
-  // const [clock, setclock] = useState();
   const [clock, setclock] = useState('h:m:s');
   const [newdate, setnewdate] = useState();
-  // let today = new Date().toLocaleTimeString();
   let date = new Date().toLocaleDateString();
-  // const updateClock = () => {
-  //   today = new Date().toLocaleTimeString();
-  //   setclock(today);
-  // };
-  // setInterval(updateClock, 1000);
  useEffect(() => {
    const timerID = setInterval( ()=> 
      tick(),1000
