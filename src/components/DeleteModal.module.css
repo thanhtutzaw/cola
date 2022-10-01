@@ -127,8 +127,21 @@
   border-radius: 8px;
   border       : 1px solid gainsboro;
 }
+.okbtn{
+  color:white;
+  background-color: rgb(212, 12, 12);
+}
 
-.okbtn:hover,
+
 .cancelbtn:hover {
   background-color: rgba(0, 0, 0, 0.1);
+}
+
+.okbtn:hover{
+  background-color: rgb(165, 7, 7);
+}
+.okbtn:active,
+.cancelbtn:active {
+  
+  /* background-color: rgba(0, 0, 0, 0.034); */
 }

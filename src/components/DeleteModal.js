@@ -43,10 +43,10 @@ function DeleteModal(props) {
             Are you sure you want to Delete ?
             <div className={style.btnContainer}>
               <button className={style.cancelbtn} onClick={CancelHandle}>
-                CANCEL
+                Cancel
               </button>
               <button className={style.okbtn} onClick={OkHandle}>
-                OK
+                Delete
               </button>
             </div>
           </div>
