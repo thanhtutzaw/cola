@@ -13,7 +13,6 @@ function Modal(props) {
     date={date}
   />;
   const submitHandle = () => {
-    // callFunction(date)
     const updateDate = props.data.map((item) => {
       if (item.id === props.currentCard) {
         return { ...item, namedate, date };
@@ -33,9 +32,10 @@ function Modal(props) {
 
   return createPortal(
     <div className="modal-parent">
+      
       <div className="backdrop" onClick={toggleModal}>
-        {/* this text is inside backdrop with black bg */}
       </div>
+
       <div className="content-modal-container">
         <div className="modal-content">
           <div className="modal-container">
@@ -57,7 +57,6 @@ function Modal(props) {
                 type="date"
                 onChange={(e) => {
                   setdate(e.target.value);
-                  // callFunction(e.target.value)
                 }}
               ></input>
             </div>
