@@ -159,12 +159,14 @@ svg {
 @media (max-width: 963px) {
   .content ul {
     display              : grid;
-    grid-template-columns: repeat(2, 180px);
+    grid-template-columns: repeat(2, 150px);
+    gap:0.8rem;
     justify-content      : center;
   }
 }
 
 li {
+  width:150px;
   cursor             : pointer;
   /* border          : 1px dashed rgba(0, 0, 0, 0.333); */
   /* width           : 150px;
@@ -197,7 +199,7 @@ cursor: default;
   border-radius   : 20px;
   width           : 150px;
   height          : 150px;
-  margin : 1rem;
+  /* margin : 1rem; */
   transition      : transform 0.11s ease-in;
   background-color: rgba(232, 232, 232, 0.411);
 }
